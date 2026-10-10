@@ -6,10 +6,12 @@
  },
  "model": {
   "repo": "satellitedown/Qwen3.8-Flash-Next-abliterated-fngine",
-  "revision": "00ef6fb5c44ecca2078378fd7510236a8e0c50c6",
+  "revision": "67963d9d5526a7e5869fa82ea6ed02481787f86c",
   "pinned_files": 20,
   "bytes": 86767778030,
-  "hub_digests": "all 20 Hub SHA-256 values (LFS metadata, or download and hash) equal the staged files hashed locally before upload"
+  "hub_digests": "all 20 Hub SHA-256 values (LFS metadata, or download and hash) equal the staged files hashed locally before upload",
+  "previous_revision": "00ef6fb5c44ecca2078378fd7510236a8e0c50c6",
+  "change_from_previous": "removed the bundled fngine source (fngine/, 535 files); the 18 pack files and LICENSE are byte-identical, README.md and NOTICE now link the engine instead. The install, serving, OMP and lifecycle checks below ran on the previous revision and carry over."
  },
  "profile": {
   "model_id": "qwen3.8-flash-next",
@@ -178,5 +180,17 @@
   "scripts_serve_ctrl_c": "exit 0",
   "used_vram_after_stop_mib": 2137,
   "used_vram_note": "desktop compositor and another application; the server held none after exit"
+ },
+ "update_from_previous_release": {
+  "checked_at": "2026-10-10T19:23:00Z",
+  "from": "installer 97bb592 with model revision 00ef6fb installed (pack reflinked from the staged release, README.md and NOTICE downloaded at 00ef6fb, routing-stats.bin with one extra count standing in for learned statistics)",
+  "command": "bash setup.sh --update",
+  "exit_code": 0,
+  "seconds": 57,
+  "installer": "fast-forwarded 97bb592 -> c4a36d8 and listed both commits",
+  "runtime": "fngine 9adf5d6 built in the fresh clone with the isolated toolchain (CUDA host compiler /usr/bin/g++-15)",
+  "model": "NOTICE and README.md moved to models/Qwen3.8-Flash-Next-abliterated-fngine.previous-<time>/, the pinned files (9 kB) downloaded and verified; the other 17 checked files verified in place",
+  "seed_file": "pack/routing-stats.bin kept unchanged (sha256 64a7555c...)",
+  "served_after_update": "29 * 31 -> 899 with reasoning_content (thinking, effort low); Ctrl-C exit 0"
  }
 }
