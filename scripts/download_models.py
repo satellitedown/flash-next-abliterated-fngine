@@ -176,8 +176,10 @@ def main():
             # verified above and excluded so unrelated data is not overwritten.
             for directory in (destination / ".cache", destination / ".cache/huggingface"):
                 ensure_directory(directory)
-            print(f"Downloading {len(missing)} files "
-                  f"({sum(files[name]['size'] for name in missing) / 1e9:.1f} GB)...", flush=True)
+            size = sum(files[name]["size"] for name in missing)
+            amount = (f"{size / 1e9:.1f} GB" if size >= 1e8 else f"{size / 1e6:.1f} MB" if size >= 1e6
+                      else f"{size / 1e3:.0f} kB")
+            print(f"Downloading {len(missing)} file{'s' if len(missing) != 1 else ''} ({amount})...", flush=True)
             snapshot_download(
                 repo_id=model["repo_id"],
                 revision=model["revision"],
