@@ -31,7 +31,7 @@ By default, everything lives inside this checkout: `.tools/`, `.venv/`, `.cuda-t
 
 Use the OpenAI-compatible API at **`http://127.0.0.1:8002/v1`**, model **`qwen3.8-flash-next`**. No API key is required. Keep the server on loopback: **there is no authentication** unless you pass `--api-key`. Requests run one at a time with a short queue; set agent frameworks to one concurrent request. Thinking output arrives as `reasoning_content`; `enable_thinking` and `reasoning_effort` work as with the Qwen chat template.
 
-The profile in [runtime-manifest.json](runtime-manifest.json) uses a context of **262,144 tokens** with fngine's defaults: K8V8 KV cache, automatic MTP/prompt-lookup speculation, adaptive expert placement and the pack's abliteration. Startup takes about 30 seconds (it loads ~50 GB of experts into VRAM and RAM).
+The profile in [runtime-manifest.json](runtime-manifest.json) uses a context of **262,144 tokens** with fngine's defaults: K8V8 KV cache, automatic MTP/prompt-lookup speculation, adaptive expert placement and the pack's abliteration. The server loads about 50 GB of experts into VRAM and RAM at startup: 14 seconds in testing with the model files already in the page cache, longer from a cold disk.
 
 For direct use after installation:
 
