@@ -10,7 +10,7 @@
   },
   "model": {
     "repo_id": "satellitedown/Qwen3.8-Flash-Next-abliterated-fngine",
-    "revision": "00ef6fb5c44ecca2078378fd7510236a8e0c50c6",
+    "revision": "67963d9d5526a7e5869fa82ea6ed02481787f86c",
     "directory": "Qwen3.8-Flash-Next-abliterated-fngine",
     "pack": "pack",
     "seed_files": [
@@ -22,12 +22,12 @@
         "size": 3235
       },
       "NOTICE": {
-        "sha256": "1c82702621b2feac34bbd14c47573ae972181db26fa2ea9f1168923ab0a8ae69",
-        "size": 857
+        "sha256": "a0c07320b12b4d593945636614c66389ecc778f53734037b931951562e6f92e1",
+        "size": 893
       },
       "README.md": {
-        "sha256": "9a4b42d94ccd09b53c7a8aa13a1206f209639937170abb3cd73ea5e3711ba9ba",
-        "size": 7745
+        "sha256": "1e5c7200fcf9e3ecc50b02162d24d512214a18d156cc5cd5ac9519f69c68578c",
+        "size": 8089
       },
       "pack/ablation.bin": {
         "sha256": "b656f6c501166c81eb0c2d7a3323e9a8a71839dfc60efd271c112382c23c9561",
