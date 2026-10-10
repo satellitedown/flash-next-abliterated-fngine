@@ -1,0 +1,182 @@
+{
+ "verified_at": "2026-10-10T18:12:00Z",
+ "runtime": {
+  "repo": "satellitedown/fngine",
+  "revision": "9adf5d6b36474530ef80508b3d1b9467a5eae90e"
+ },
+ "model": {
+  "repo": "satellitedown/Qwen3.8-Flash-Next-abliterated-fngine",
+  "revision": "00ef6fb5c44ecca2078378fd7510236a8e0c50c6",
+  "pinned_files": 20,
+  "bytes": 86767778030,
+  "hub_digests": "all 20 Hub SHA-256 values (LFS metadata, or download and hash) equal the staged files hashed locally before upload"
+ },
+ "profile": {
+  "model_id": "qwen3.8-flash-next",
+  "host": "127.0.0.1",
+  "port": 8002,
+  "context": 262144,
+  "engine_defaults": "K8V8 KV cache, --spec auto (MTP + prompt lookup), adaptive experts, ablation on"
+ },
+ "scope": "Installation, update, serving and integration checks from a fresh clone, not a model quality or throughput benchmark. Model verification is in the model repository (abliteration/).",
+ "machine": {
+  "gpu": "NVIDIA GeForce RTX 5090 32 GB, driver 610.57.04",
+  "cpu": "AMD Ryzen 9 9900X3D",
+  "ram_gib": 60.2,
+  "os": "Arch Linux (omarchy), kernel 7.2.5",
+  "system_compilers": "GCC 16.2.1 (cc/c++), GCC 15.3.0 (g++-15)"
+ },
+ "installed_runtime": {
+  "fresh_clone": true,
+  "independent_build": true,
+  "environment": "no system CUDA on PATH, no CUDA_HOME, NVCC_CCBIN or HF_TOKEN",
+  "menu_option_1_seconds": 1041,
+  "menu_option_1": "prerequisite checks passed; fngine fetched from GitHub at the pin and built (205 steps, fngine-serve only); all 20 pinned files (86.8 GB) downloaded from the Hub unauthenticated and verified; dense_bf16.bin not downloaded",
+  "toolchain": "pip wheels: nvcc 13.3.73, CCCL 3.4.2, cuBLAS 13.6.0.2, cudart 13.3.29",
+  "cuda_host_compiler": "/usr/bin/g++-15, chosen by the nvcc probe (nvcc 13.3 rejects the system GCC 16)",
+  "runpath": "$ORIGIN/../../../../.cuda-toolkit/nvidia/cu13/lib (libcudart and libcublasLt resolve inside the checkout)",
+  "startup_seconds": 14,
+  "startup_note": "model files in the page cache after the download",
+  "engine_tests": "46/46 ctest (FNGINE_BUILD_TESTS=ON) for the pinned commit, built with the same pip CUDA wheels and run against the abliterated pack and its reference goldens, 176.9 s"
+ },
+ "checks": [
+  {
+   "label": "short-text",
+   "http_status": 200,
+   "seconds": 0.207,
+   "usage": {
+    "completion_tokens": 2,
+    "completion_tokens_details": {
+     "reasoning_tokens": 0
+    },
+    "prompt_tokens": 19,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "total_tokens": 21
+   },
+   "finish_reason": "stop",
+   "content": "ready"
+  },
+  {
+   "label": "thinking-arithmetic",
+   "http_status": 200,
+   "seconds": 2.141,
+   "usage": {
+    "completion_tokens": 210,
+    "completion_tokens_details": {
+     "reasoning_tokens": 205
+    },
+    "prompt_tokens": 73,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "total_tokens": 283
+   },
+   "finish_reason": "stop",
+   "content": "215",
+   "reasoning_chars": 382,
+   "expected": "215"
+  },
+  {
+   "label": "tool-call-first-attempt",
+   "http_status": 200,
+   "seconds": 0.968,
+   "usage": {
+    "completion_tokens": 31,
+    "completion_tokens_details": {
+     "reasoning_tokens": 0
+    },
+    "prompt_tokens": 283,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "total_tokens": 314
+   },
+   "finish_reason": "stop",
+   "content": "I see a \"get_weather\" tool available, but I don't have a direct way to know the current weather without calling it. Let me check",
+   "note": "Sampled decoding (server defaults) ended the turn after the text above without a call; the parser returns any tool-call markup as content when it cannot parse it, and none was present."
+  },
+  {
+   "label": "long-context-recall",
+   "http_status": 200,
+   "seconds": 135.195,
+   "usage": {
+    "completion_tokens": 11,
+    "completion_tokens_details": {
+     "reasoning_tokens": 0
+    },
+    "prompt_tokens": 261058,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "total_tokens": 261069
+   },
+   "finish_reason": "stop",
+   "content": "MAPLE-8427-FNGINE",
+   "expected": "MAPLE-8427-FNGINE",
+   "prefill_tokens_per_second": 1931.0
+  },
+  {
+   "label": "tool-call-sampled-trials",
+   "trials": 30,
+   "get_weather_lisbon_calls": 30,
+   "request": "the tool-call-first-attempt request repeated (thinking off, max_tokens 256, sampled)"
+  },
+  {
+   "label": "tool-call-variants",
+   "thinking_default": "get_weather {\"city\":\"Lisbon\"}",
+   "thinking_off": "get_weather {\"city\":\"Lisbon\"}",
+   "thinking_off_streamed": "get_weather {\"city\":\"Lisbon\"} as a streamed tool_calls delta"
+  },
+  {
+   "label": "menu-option-3-thinking",
+   "http_status": 200,
+   "seconds": 0.8,
+   "content": "391",
+   "expected": "391",
+   "usage": {
+    "prompt_tokens": 56,
+    "completion_tokens": 62,
+    "reasoning_tokens": 57
+   }
+  },
+  {
+   "label": "menu-option-3-streamed-code",
+   "http_status": 200,
+   "completion_tokens": 117,
+   "time_to_first_token_s": 0.22,
+   "decode_tokens_per_second": 160.1,
+   "result": "merge_intervals with a docstring and two doctest examples"
+  }
+ ],
+ "update": {
+  "command": "bash setup.sh --update",
+  "seconds": 25,
+  "installer": "fast-forwarded 0c199ed -> bc34de0 and listed the change",
+  "runtime": "rebuild at the unchanged pin had no work",
+  "model": "a locally edited README.md was moved to models/Qwen3.8-Flash-Next-abliterated-fngine.previous-<time>/ and the pinned file downloaded and verified; the other 18 checked files verified in place",
+  "seed_file": "pack/routing-stats.bin, rewritten by the server (sha256 6d1be616... -> 7881f198...), was kept unchanged"
+ },
+ "omp": {
+  "selector": "fngine/qwen3.8-flash-next",
+  "exit_code": 0,
+  "thinking": "low",
+  "tool": "read",
+  "tool_succeeded": true,
+  "answer": "FNGINE-TOOL-ROUNDTRIP-7Q3K",
+  "expected": "FNGINE-TOOL-ROUNDTRIP-7Q3K",
+  "usage": {
+   "input": 40,
+   "output": 87,
+   "cacheRead": 8183,
+   "reasoningTokens": 70
+  }
+ },
+ "lifecycle": {
+  "menu_option_3_ctrl_c": "exit 0; routing statistics flushed (91,680 new routed pairs)",
+  "scripts_serve_ctrl_c": "exit 0",
+  "used_vram_after_stop_mib": 2137,
+  "used_vram_note": "desktop compositor and another application; the server held none after exit"
+ }
+}
