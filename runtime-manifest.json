@@ -1,0 +1,108 @@
+{
+  "name": "Qwen3.8-Flash-Next abliterated - fngine",
+  "runtime": {
+    "repo_id": "satellitedown/fngine",
+    "revision": "9adf5d6b36474530ef80508b3d1b9467a5eae90e",
+    "cuda_architectures": "120a",
+    "cuda_version": "13.3.73",
+    "build_type": "Release",
+    "build_jobs": 8
+  },
+  "model": {
+    "repo_id": "satellitedown/Qwen3.8-Flash-Next-abliterated-fngine",
+    "revision": "00ef6fb5c44ecca2078378fd7510236a8e0c50c6",
+    "directory": "Qwen3.8-Flash-Next-abliterated-fngine",
+    "pack": "pack",
+    "seed_files": [
+      "pack/routing-stats.bin"
+    ],
+    "files": {
+      "LICENSE": {
+        "sha256": "a0dc422560841fd68e06d974907f8b4c709bca44a67daad2b528437bdf676c08",
+        "size": 3235
+      },
+      "NOTICE": {
+        "sha256": "1c82702621b2feac34bbd14c47573ae972181db26fa2ea9f1168923ab0a8ae69",
+        "size": 857
+      },
+      "README.md": {
+        "sha256": "9a4b42d94ccd09b53c7a8aa13a1206f209639937170abb3cd73ea5e3711ba9ba",
+        "size": 7745
+      },
+      "pack/ablation.bin": {
+        "sha256": "b656f6c501166c81eb0c2d7a3323e9a8a71839dfc60efd271c112382c23c9561",
+        "size": 491712
+      },
+      "pack/decode-profile.bin": {
+        "sha256": "e7041c7494152f287c8eb1b9d6d491048eb9391ef8b9971555c9e99d7a0431c9",
+        "size": 196608
+      },
+      "pack/dense.bin": {
+        "sha256": "6114050cf3951f4f98f3c62d33c06023e22ee325eb1ad28aa5c5b953d702682c",
+        "size": 5852110848
+      },
+      "pack/draft-vocab.bin": {
+        "sha256": "26010108d6660767fad91d5b419fdab6fe3431d65944c5de52e5fa18734c4a92",
+        "size": 131072
+      },
+      "pack/experts.bin": {
+        "sha256": "58cf1829f94e5668bbad48ac9077fcb5227e2a58bd9b149f709419783af36d1a",
+        "size": 50348425216
+      },
+      "pack/manifest.json": {
+        "sha256": "38b7e16b0a6913589ae7602691a698a759fda90df53ebe07b073bc10ce3229bb",
+        "size": 264644
+      },
+      "pack/mtp_experts.bin": {
+        "sha256": "d915a533ddbe9422d490a2abc33119ded3fea3296b1786b0e3a7cd8666fc27eb",
+        "size": 1415577600
+      },
+      "pack/ngram.bin": {
+        "sha256": "1d4e90758d315f2e6cbc2d017a6e6c34d28d6549277983bb02c38db4722c78b8",
+        "size": 29127258112
+      },
+      "pack/profile.bin": {
+        "sha256": "22ec66cf698cada8025e4ffb77a45b23ce3f2bb2355a0d00d23c683674666f53",
+        "size": 196608
+      },
+      "pack/routing-stats.bin": {
+        "sha256": "6d1be61652cb2ecfa490a1af54a2a8a1d589277a38460e9df68768d7b973e8ab",
+        "size": 196608
+      },
+      "pack/tokenizer/chat_template.jinja": {
+        "sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+        "size": 8952
+      },
+      "pack/tokenizer/config.json": {
+        "sha256": "889658f2508e8c61d409b02e70e0d78d8d4452ec65aaafbe129805d213d2e74b",
+        "size": 4745
+      },
+      "pack/tokenizer/generation_config.json": {
+        "sha256": "e70c136c1b78ddc1fb0905bac8e733a4dc448d4f852a5dd75143fffc70be550e",
+        "size": 202
+      },
+      "pack/tokenizer/merges.txt": {
+        "sha256": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+        "size": 3353259
+      },
+      "pack/tokenizer/tokenizer.json": {
+        "sha256": "0997f410c57a1f4e53b09e4be8f4a172d90edd9564368fb0847030937229b9f3",
+        "size": 12809320
+      },
+      "pack/tokenizer/tokenizer_config.json": {
+        "sha256": "b11349aafa7cdc6a320767cf7ceb29ed82f7eda5d65e8e0819e76f0ce947bf27",
+        "size": 17928
+      },
+      "pack/tokenizer/vocab.json": {
+        "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003",
+        "size": 6722759
+      }
+    }
+  },
+  "serving": {
+    "model_id": "qwen3.8-flash-next",
+    "host": "127.0.0.1",
+    "port": 8002,
+    "context": 262144
+  }
+}

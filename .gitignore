@@ -1,0 +1,15 @@
+.venv/
+.cuda-toolkit/
+.tools/
+runtime/
+models/
+runs/
+__pycache__/
+*.py[cod]
+*.log
+.env
+.env.*
+*.bin
+*.gguf
+*.safetensors
+.fngine-download.lock

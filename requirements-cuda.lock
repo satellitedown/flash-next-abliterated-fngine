@@ -1,0 +1,10 @@
+# Isolated native build SDK; install with --no-deps --target .cuda-toolkit.
+# CUDA_HOME=.cuda-toolkit/nvidia/cu13. Matches the CUDA 13.3 toolchain fngine is validated with
+# (nvcc 13.3.73, CCCL 3.4.2, cuBLAS 13.6.0.2). The system NVIDIA driver is not installed here.
+nvidia-cuda-nvcc==13.3.73
+nvidia-cuda-runtime==13.3.29
+nvidia-cuda-crt==13.3.73
+nvidia-cuda-cccl==13.3.4.2.1
+nvidia-nvvm==13.3.73
+nvidia-nvtx==13.3.29
+nvidia-cublas==13.6.0.2

@@ -1,0 +1,46 @@
+Qwen3.8-Flash-Next abliterated - fngine
+
+Installer recipe
+----------------
+Adapted from the fafstmobel - Cinference installer:
+https://github.com/satellitedown/fafstmobel-cinference
+The recipe has been changed to build fngine instead of Cinference, pin CUDA 13.3
+with a separately probed CUDA host compiler, check the CPU's AVX-512 extensions,
+download the abliterated Qwen3.8-Flash-Next fngine pack with per-file checksums,
+and keep the server's learned placement statistics across updates.
+
+This repository provides an Apache-2.0 installation recipe. It does not
+redistribute model weights. Its license does not replace the licenses of
+downloaded software or model artifacts.
+
+Runtime
+-------
+fngine: https://github.com/satellitedown/fngine (Apache-2.0)
+The immutable runtime revision is recorded in runtime-manifest.json. fngine is
+derived in part from Cinference (https://github.com/satellitedown/cinference)
+and NInfer (https://github.com/Neroued/ninfer, Apache-2.0), with GGUF i-quant
+code from ggml (MIT) and vendored libraries under their own licenses; see
+fngine's NOTICE and LICENSE. This recipe builds the pinned commit without local
+source patches.
+
+Model
+-----
+satellitedown/Qwen3.8-Flash-Next-abliterated-fngine:
+https://huggingface.co/satellitedown/Qwen3.8-Flash-Next-abliterated-fngine
+The immutable model revision and the SHA-256 of every downloaded file are
+recorded in runtime-manifest.json. The download retains the model repository's
+LICENSE, NOTICE and README.md without alteration.
+
+Upstream inputs (see the downloaded NOTICE):
+- Qwen: Qwen/Qwen3.8-Flash-Next, Qwen Community License 1.0. The pack is a
+  derivative work and the license's conditions apply to it.
+- ISTA-DASLab: Qwen3.8-Flash-Next-GSQ-RCO-GGUF (IQ3_S); GSQ and RCO
+  quantization of the routed experts and n-gram table, kept byte-identical.
+- huihui-ai: Huihui-Qwen3.8-Flash-Next-abliterated; its edited dense tensors
+  are included and its routed-expert edit is applied by fngine at run time.
+  No retraining was performed.
+- NVIDIA: CUDA components downloaded from PyPI retain their own license terms.
+
+This is an unofficial community recipe, not an endorsement by or affiliation
+with Alibaba Cloud, ISTA-DASLab, huihui-ai, NVIDIA, or NInfer.
+Qwen is a trademark of Alibaba Cloud.
