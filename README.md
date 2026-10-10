@@ -2,6 +2,8 @@
 
 A repository-local installer for [Qwen3.8-Flash-Next-abliterated-fngine](https://huggingface.co/satellitedown/Qwen3.8-Flash-Next-abliterated-fngine), served by [fngine](https://github.com/satellitedown/fngine), a C++20/CUDA engine written for this model. The routed experts keep their ISTA-DASLab GSQ-RCO IQ3_S bytes and are split between the GPU and an AVX-512 CPU tier, the dense weights are FP8, and MTP speculation is lossless. Adapted from the [fafstmobel installer](https://github.com/satellitedown/fafstmobel-cinference).
 
+This repository is the installation for the abliterated model. The engine is developed separately in [satellitedown/fngine](https://github.com/satellitedown/fngine), and the model's weights are hosted on Hugging Face (too large for Git); this installer pins one engine commit and one model revision and installs both.
+
 ## Run
 
 You need **Linux x86_64, an RTX 5090 (32 GB), an AVX-512 CPU (AMD Zen 4/5, Intel Sapphire Rapids or later), about 60 GB of RAM, and an NVIDIA driver compatible with CUDA 13.3**. The model is too large for VRAM alone: part of every layer's experts runs on the CPU, so CPU and RAM speed matter. This preset builds for Blackwell **sm_120a**; other GPUs are not validated. The installer does not install or change GPU drivers.
@@ -94,7 +96,7 @@ Use `--thinking off` for non-thinking requests. The explicit Qwen template setti
 [runtime-manifest.json](runtime-manifest.json) pins:
 
 - runtime: `satellitedown/fngine` at a full commit, built with the locked CUDA wheels in [requirements-cuda.lock](requirements-cuda.lock);
-- model: `satellitedown/Qwen3.8-Flash-Next-abliterated-fngine` at a full revision, with the SHA-256 and size of every file needed to serve plus the repository's `LICENSE`, `NOTICE` and `README.md`. The pack's `dense_bf16.bin` (8.7 GB, used only by fngine's validation mode) and the engine source copy in the model repository are not downloaded.
+- model: `satellitedown/Qwen3.8-Flash-Next-abliterated-fngine` at a full revision, with the SHA-256 and size of every file needed to serve plus the repository's `LICENSE`, `NOTICE` and `README.md`. Its `abliteration/` folder (how the model was made and verified) and the pack's `dense_bf16.bin` (8.7 GB, used only by fngine's validation mode) are not downloaded.
 
 Maintainers pin new versions with `.venv/bin/python tools/pin.py`, which takes every checksum from the Hub at the pinned revision, and commit the result.
 
