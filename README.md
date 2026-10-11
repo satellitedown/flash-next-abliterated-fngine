@@ -8,9 +8,19 @@ This repository is the installation for the abliterated model. The engine is dev
 
 You need **Linux x86_64, an RTX 5090 (32 GB), an AVX-512 CPU (AMD Zen 4/5, Intel Sapphire Rapids or later), about 60 GB of RAM, and an NVIDIA driver compatible with CUDA 13.3**. The model is too large for VRAM alone: part of every layer's experts runs on the CPU, so CPU and RAM speed matter. This preset builds for Blackwell **sm_120a**; other GPUs are not validated. The installer does not install or change GPU drivers.
 
-Open a terminal in this repository and run:
+Install with one command. It downloads this installer to `~/flash-next-abliterated-fngine` and opens its menu:
 
 ```bash
+curl -fsSL https://raw.githubusercontent.com/satellitedown/flash-next-abliterated-fngine/main/get.sh | bash
+```
+
+Choose **1** to install (it builds fngine and downloads the model), then **3** to start the server. Run the same command again any time to get back to the menu. To install on another disk, set the folder: `curl -fsSL https://raw.githubusercontent.com/satellitedown/flash-next-abliterated-fngine/main/get.sh | FNGINE_DIR=/path/to/folder bash`.
+
+Or do the same by hand:
+
+```bash
+git clone https://github.com/satellitedown/flash-next-abliterated-fngine
+cd flash-next-abliterated-fngine
 bash setup.sh
 ```
 
