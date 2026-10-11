@@ -2,7 +2,7 @@
   "name": "Qwen3.8-Flash-Next abliterated - fngine",
   "runtime": {
     "repo_id": "satellitedown/fngine",
-    "revision": "9adf5d6b36474530ef80508b3d1b9467a5eae90e",
+    "revision": "abf05bdfc54851ca31d83f6d6eeb92c472dd192d",
     "cuda_architectures": "120a",
     "cuda_version": "13.3.73",
     "build_type": "Release",
