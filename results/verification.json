@@ -2,7 +2,9 @@
  "verified_at": "2026-10-10T18:12:00Z",
  "runtime": {
   "repo": "satellitedown/fngine",
-  "revision": "9adf5d6b36474530ef80508b3d1b9467a5eae90e"
+  "revision": "abf05bdfc54851ca31d83f6d6eeb92c472dd192d",
+  "previous_revision": "9adf5d6b36474530ef80508b3d1b9467a5eae90e",
+  "change_from_previous": "fngine's sixth performance pass: persistent hot-expert kernels, the MoE combine's CPU-tier wait beside hot_down, GR norm/down preloads, and verify-step GDN/PLE folds beside the MTP drafts. Decode-path logits are identical to 9adf5d6 with fixed placement and 46/46 engine tests pass (fngine results/perf-2026-10/round6.json). The fresh-install, HTTP, OMP and lifecycle checks below ran on 9adf5d6; update_to_abf05bd covers the update, rebuild and serving on abf05bd."
  },
  "model": {
   "repo": "satellitedown/Qwen3.8-Flash-Next-abliterated-fngine",
@@ -192,5 +194,22 @@
   "model": "NOTICE and README.md moved to models/Qwen3.8-Flash-Next-abliterated-fngine.previous-<time>/, the pinned files (9 kB) downloaded and verified; the other 17 checked files verified in place",
   "seed_file": "pack/routing-stats.bin kept unchanged (sha256 64a7555c...)",
   "served_after_update": "29 * 31 -> 899 with reasoning_content (thinking, effort low); Ctrl-C exit 0"
+ },
+ "update_to_abf05bd": {
+  "checked_at": "2026-10-11T09:38:00Z",
+  "from": "installer 0555aef in a fresh clone, fngine 9adf5d6 built there by scripts/install.sh with the isolated toolchain, model revision 67963d9 files reflinked from the staged release",
+  "command": "bash setup.sh --update (in a pseudo-terminal; no system CUDA on PATH, no CUDA_HOME, CUDA_PATH or NVCC_CCBIN)",
+  "exit_code": 0,
+  "seconds": 42,
+  "installer": "fast-forwarded 0555aef -> 17128fe and listed the change",
+  "runtime": "fngine abf05bd fetched into the existing checkout and fngine-serve rebuilt with the isolated toolchain (CUDA host compiler /usr/bin/g++-15)",
+  "model": "all 19 checked files verified in place; nothing moved aside or downloaded",
+  "seed_file": "pack/routing-stats.bin kept unchanged (sha256 6d1be616...)",
+  "served_after_update": {
+   "startup_seconds": 11.4,
+   "arithmetic": "29 * 31 -> 899 with reasoning_content (effort low); 61 tokens, 30 of 33 drafts accepted",
+   "coding": "merge-intervals function with two asserts: 304 tokens at 136.1 tok/s (first requests of the process), 200 of 269 drafts accepted; the returned code ran and both asserts passed",
+   "stop": "SIGINT (Ctrl-C) exit 0; routing statistics flushed (211,680 new routed pairs)"
+  }
  }
 }
