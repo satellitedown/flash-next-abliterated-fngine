@@ -1,17 +1,17 @@
 {
-  "name": "Qwen3.8-Flash-Next abliterated - fngine",
+  "name": "Qwen3.8-Flash-Next heretic - fngine",
   "runtime": {
     "repo_id": "satellitedown/fngine",
-    "revision": "abf05bdfc54851ca31d83f6d6eeb92c472dd192d",
+    "revision": "c20a885af5acac15ab86fd0000ecc907968658dd",
     "cuda_architectures": "120a",
     "cuda_version": "13.3.73",
     "build_type": "Release",
     "build_jobs": 8
   },
   "model": {
-    "repo_id": "satellitedown/Qwen3.8-Flash-Next-abliterated-fngine",
-    "revision": "67963d9d5526a7e5869fa82ea6ed02481787f86c",
-    "directory": "Qwen3.8-Flash-Next-abliterated-fngine",
+    "repo_id": "satellitedown/Qwen3.8-Flash-Next-heretic-fngine",
+    "revision": "c6b236b615d67114264bd3de2de4c957e9b09ae2",
+    "directory": "Qwen3.8-Flash-Next-heretic-fngine",
     "pack": "pack",
     "seed_files": [
       "pack/routing-stats.bin"
@@ -22,15 +22,15 @@
         "size": 3235
       },
       "NOTICE": {
-        "sha256": "a0c07320b12b4d593945636614c66389ecc778f53734037b931951562e6f92e1",
-        "size": 893
+        "sha256": "1bbde076a156332cd1fc54535e7b3eb7890ba3508c5de6a60c1b37e749063887",
+        "size": 1001
       },
       "README.md": {
-        "sha256": "1e5c7200fcf9e3ecc50b02162d24d512214a18d156cc5cd5ac9519f69c68578c",
-        "size": 8089
+        "sha256": "c587d68094ba84a422f41516895cffba6e75e5a56f007518c78a000eceb0b4b3",
+        "size": 8143
       },
       "pack/ablation.bin": {
-        "sha256": "b656f6c501166c81eb0c2d7a3323e9a8a71839dfc60efd271c112382c23c9561",
+        "sha256": "619645661e439e7120b57d634b163f9d985aac800f331853aca32b513bb715e0",
         "size": 491712
       },
       "pack/decode-profile.bin": {
@@ -38,7 +38,7 @@
         "size": 196608
       },
       "pack/dense.bin": {
-        "sha256": "6114050cf3951f4f98f3c62d33c06023e22ee325eb1ad28aa5c5b953d702682c",
+        "sha256": "51560581d882e245ceb9fc2669936addec301ad17dd4cd9650e7bc7487517651",
         "size": 5852110848
       },
       "pack/draft-vocab.bin": {
@@ -50,8 +50,8 @@
         "size": 50348425216
       },
       "pack/manifest.json": {
-        "sha256": "38b7e16b0a6913589ae7602691a698a759fda90df53ebe07b073bc10ce3229bb",
-        "size": 264644
+        "sha256": "84e8d30223ceb0888de6957b4a76150636aaab9cee8237cd394a0a194e9e7015",
+        "size": 265580
       },
       "pack/mtp_experts.bin": {
         "sha256": "d915a533ddbe9422d490a2abc33119ded3fea3296b1786b0e3a7cd8666fc27eb",
@@ -66,7 +66,7 @@
         "size": 196608
       },
       "pack/routing-stats.bin": {
-        "sha256": "6d1be61652cb2ecfa490a1af54a2a8a1d589277a38460e9df68768d7b973e8ab",
+        "sha256": "8a4051c1ff8fc8fd4a1e7aed8c57c67a97a5d196ba2c2e0f70e4c91b7ea75895",
         "size": 196608
       },
       "pack/tokenizer/chat_template.jinja": {

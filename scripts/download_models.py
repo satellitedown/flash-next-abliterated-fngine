@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Download and verify the pinned abliterated Qwen3.8-Flash-Next fngine pack and its licenses."""
+"""Download and verify the pinned heretic Qwen3.8-Flash-Next fngine pack and its licenses."""
 import argparse
 import fcntl
 import hashlib
@@ -15,6 +15,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 # Free space required beyond the files themselves: metadata and filesystem overhead.
 SPACE_MARGIN = 1 << 30
+# Model folders of earlier releases. Their routed experts, n-gram table and MTP experts are
+# byte-identical to the current pack, so an existing one is renamed to the current folder and only
+# the files that differ are replaced (moved aside, then downloaded), instead of downloading ~87 GB.
+LEGACY_DIRECTORIES = ("Qwen3.8-Flash-Next-abliterated-fngine",)
 
 
 def require_file(path):
@@ -129,6 +133,17 @@ def main():
     destination = args.models_dir
     for part in Path(model["directory"]).parts:
         destination /= part
+    if not destination.exists() and not destination.is_symlink():
+        for legacy in LEGACY_DIRECTORIES:
+            old = args.models_dir / legacy
+            if old != destination and old.is_dir() and not old.is_symlink():
+                ensure_directory(destination.parent)
+                old.rename(destination)
+                print(f"Renamed {old} to {destination} (earlier model release; matching files are kept)", flush=True)
+                break
+    destination = args.models_dir
+    for part in Path(model["directory"]).parts:
+        destination /= part
         ensure_directory(destination)
     fd = os.open(destination / ".fngine-download.lock", os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
     with os.fdopen(fd, "r+") as lock:
@@ -193,7 +208,8 @@ def main():
                     raise mismatch_error(destination / name, files[name], digest)
                 print(f"Verified: {name}", flush=True)
     print(f"Ready: {destination / model['pack']}", flush=True)
-    for kept in sorted(destination.parent.glob(f"{destination.name}.previous-*")):
+    names = (destination.name, *LEGACY_DIRECTORIES)
+    for kept in sorted(p for n in names for p in destination.parent.glob(f"{n}.previous-*")):
         print(f"Earlier model files are kept in {kept}; delete it once the new model works.", flush=True)
     print("Download complete.", flush=True)
 

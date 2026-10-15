@@ -1,4 +1,4 @@
-Qwen3.8-Flash-Next abliterated - fngine
+Qwen3.8-Flash-Next heretic - fngine
 
 Installer recipe
 ----------------
@@ -6,7 +6,7 @@ Adapted from the fafstmobel - Cinference installer:
 https://github.com/satellitedown/fafstmobel-cinference
 The recipe has been changed to build fngine instead of Cinference, pin CUDA 13.3
 with a separately probed CUDA host compiler, check the CPU's AVX-512 extensions,
-download the abliterated Qwen3.8-Flash-Next fngine pack with per-file checksums,
+download the heretic Qwen3.8-Flash-Next fngine pack with per-file checksums,
 and keep the server's learned placement statistics across updates.
 
 This repository provides an Apache-2.0 installation recipe. It does not
@@ -25,8 +25,8 @@ source patches.
 
 Model
 -----
-satellitedown/Qwen3.8-Flash-Next-abliterated-fngine:
-https://huggingface.co/satellitedown/Qwen3.8-Flash-Next-abliterated-fngine
+satellitedown/Qwen3.8-Flash-Next-heretic-fngine:
+https://huggingface.co/satellitedown/Qwen3.8-Flash-Next-heretic-fngine
 The immutable model revision and the SHA-256 of every downloaded file are
 recorded in runtime-manifest.json. The download retains the model repository's
 LICENSE, NOTICE and README.md without alteration.
@@ -36,11 +36,12 @@ Upstream inputs (see the downloaded NOTICE):
   derivative work and the license's conditions apply to it.
 - ISTA-DASLab: Qwen3.8-Flash-Next-GSQ-RCO-GGUF (IQ3_S); GSQ and RCO
   quantization of the routed experts and n-gram table, kept byte-identical.
-- huihui-ai: Huihui-Qwen3.8-Flash-Next-abliterated; its edited dense tensors
-  are included and its routed-expert edit is applied by fngine at run time.
-  No retraining was performed.
+- trohrbaugh: Qwen3.8-Flash-Next-heretic-2, made with Heretic
+  (https://github.com/p-e-w/heretic); its edited dense tensors are included and
+  its routed-expert edit is applied by fngine at run time. No retraining was
+  performed.
 - NVIDIA: CUDA components downloaded from PyPI retain their own license terms.
 
 This is an unofficial community recipe, not an endorsement by or affiliation
-with Alibaba Cloud, ISTA-DASLab, huihui-ai, NVIDIA, or NInfer.
-Qwen is a trademark of Alibaba Cloud.
+with Alibaba Cloud, ISTA-DASLab, trohrbaugh, the Heretic authors, NVIDIA, or
+NInfer. Qwen is a trademark of Alibaba Cloud.

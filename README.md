@@ -1,8 +1,8 @@
-# Qwen3.8-Flash-Next abliterated: fngine
+# Qwen3.8-Flash-Next heretic: fngine
 
-A repository-local installer for [Qwen3.8-Flash-Next-abliterated-fngine](https://huggingface.co/satellitedown/Qwen3.8-Flash-Next-abliterated-fngine), served by [fngine](https://github.com/satellitedown/fngine), a C++20/CUDA engine written for this model. The routed experts keep their ISTA-DASLab GSQ-RCO IQ3_S bytes and are split between the GPU and an AVX-512 CPU tier, the dense weights are FP8, and MTP speculation is lossless. Adapted from the [fafstmobel installer](https://github.com/satellitedown/fafstmobel-cinference).
+A repository-local installer for [Qwen3.8-Flash-Next-heretic-fngine](https://huggingface.co/satellitedown/Qwen3.8-Flash-Next-heretic-fngine), a decensored Qwen3.8-Flash-Next served by [fngine](https://github.com/satellitedown/fngine), a C++20/CUDA engine written for this model. The routed experts keep their ISTA-DASLab GSQ-RCO IQ3_S bytes and are split between the GPU and an AVX-512 CPU tier, the dense weights are FP8, and MTP speculation is lossless. Adapted from the [fafstmobel installer](https://github.com/satellitedown/fafstmobel-cinference).
 
-This repository is the installation for the abliterated model. The engine is developed separately in [satellitedown/fngine](https://github.com/satellitedown/fngine), and the model's weights are hosted on Hugging Face (too large for Git); this installer pins one engine commit and one model revision and installs both.
+This repository is the installation for the heretic model. The engine is developed separately in [satellitedown/fngine](https://github.com/satellitedown/fngine), and the model's weights are hosted on Hugging Face (too large for Git); this installer pins one engine commit and one model revision and installs both.
 
 ## Run
 
@@ -33,17 +33,17 @@ The same menu handles installation, updates, and serving:
 
 Choose **0** to exit the menu. An interrupted install can be continued with option 1, an interrupted download with option 2, and an interrupted update by running it again. Existing modified runtime source, unexpected CUDA files, or mismatched model files are reported instead of reset or deleted. Review the error and move conflicting files aside yourself before retrying.
 
-Updating pulls this installer from GitHub, rebuilds fngine at its new pin, and checks the model files against the new checksums. Files that no longer match, such as an earlier model revision, are moved to `models/Qwen3.8-Flash-Next-abliterated-fngine.previous-<time>/` and the pinned files are downloaded; nothing is deleted. The update stops before downloading if the replacement files don't fit beside the kept ones. Delete the `previous` folder once the new model works, and restart a running server to use the update.
+Updating pulls this installer from GitHub, rebuilds fngine at its new pin, and checks the model files against the new checksums. Files that no longer match, such as an earlier model revision, are moved to `models/Qwen3.8-Flash-Next-heretic-fngine.previous-<time>/` and the pinned files are downloaded; nothing is deleted. An installation of the earlier abliterated release (`models/Qwen3.8-Flash-Next-abliterated-fngine/`) is renamed to the new folder first: its experts, n-gram table and MTP experts are the same files, so only the changed ones (mainly `dense.bin`, about 6 GB) are downloaded. The update stops before downloading if the replacement files don't fit beside the kept ones. Delete the `previous` folder once the new model works, and restart a running server to use the update.
 
 The server keeps learning which experts your workload uses and stores that in `pack/routing-stats.bin`, which decides what stays on the GPU at the next start. Updates keep this file; delete it to start from the published statistics again (option 2 downloads them).
 
-By default, everything lives inside this checkout: `.tools/`, `.venv/`, `.cuda-toolkit/`, `runtime/fngine/`, and `models/Qwen3.8-Flash-Next-abliterated-fngine/`. The isolated CUDA SDK is pinned to **13.3.73** with cuBLAS **13.6.0.2**, the versions fngine is tested with; it does not use a system CUDA toolkit. System compilers, NVIDIA driver libraries and liburing remain prerequisites. CUDA 13.3 accepts GCC up to 15 as its host compiler: on systems whose default GCC is newer, the installer uses `g++-15` (or 14, 13, 12) for CUDA host code (on Arch, option 1 offers to install `gcc15`); `CUDAHOSTCXX` selects another. fngine's CPU code is compiled for the installing machine's CPU.
+By default, everything lives inside this checkout: `.tools/`, `.venv/`, `.cuda-toolkit/`, `runtime/fngine/`, and `models/Qwen3.8-Flash-Next-heretic-fngine/`. The isolated CUDA SDK is pinned to **13.3.73** with cuBLAS **13.6.0.2**, the versions fngine is tested with; it does not use a system CUDA toolkit. System compilers, NVIDIA driver libraries and liburing remain prerequisites. CUDA 13.3 accepts GCC up to 15 as its host compiler: on systems whose default GCC is newer, the installer uses `g++-15` (or 14, 13, 12) for CUDA host code (on Arch, option 1 offers to install `gcc15`); `CUDAHOSTCXX` selects another. fngine's CPU code is compiled for the installing machine's CPU.
 
 ## Connect an application
 
 Use the OpenAI-compatible API at **`http://127.0.0.1:8002/v1`**, model **`qwen3.8-flash-next`**. No API key is required. Keep the server on loopback: **there is no authentication** unless you pass `--api-key`. Requests run one at a time with a short queue; set agent frameworks to one concurrent request. Thinking output arrives as `reasoning_content`; `enable_thinking` and `reasoning_effort` work as with the Qwen chat template.
 
-The profile in [runtime-manifest.json](runtime-manifest.json) uses a context of **262,144 tokens** with fngine's defaults: K8V8 KV cache, automatic MTP/prompt-lookup speculation, adaptive expert placement and the pack's abliteration. The server loads about 50 GB of experts into VRAM and RAM at startup: 14 seconds in testing with the model files already in the page cache, longer from a cold disk.
+The profile in [runtime-manifest.json](runtime-manifest.json) uses a context of **262,144 tokens** with fngine's defaults: K8V8 KV cache, automatic MTP/prompt-lookup speculation, adaptive expert placement and the pack's decensoring edit. The server loads about 50 GB of experts into VRAM and RAM at startup: 14 seconds in testing with the model files already in the page cache, longer from a cold disk.
 
 For direct use after installation:
 
@@ -65,7 +65,7 @@ providers:
     api: openai-completions
     models:
       - id: qwen3.8-flash-next
-        name: Qwen 3.8 Flash Next 256K abliterated (fngine)
+        name: Qwen 3.8 Flash Next 256K heretic (fngine)
         contextWindow: 262144
         maxTokens: 32768
         reasoning: true
@@ -99,20 +99,20 @@ Use `--thinking off` for non-thinking requests. The explicit Qwen template setti
 
 ## Verification
 
-[results/verification.json](results/verification.json) records the pins, the toolchain, and the checks run from a fresh clone of this installer: build, download and checksum verification, serving, and update. The model's own verification (agreement with PyTorch references, refusal and capability comparisons, engine tests) is in the model repository's `abliteration/` folder and summarized on its [model card](https://huggingface.co/satellitedown/Qwen3.8-Flash-Next-abliterated-fngine).
+[results/verification.json](results/verification.json) records the pins, the toolchain, and the checks run from a fresh clone of this installer: build, download and checksum verification, serving, and update. The model's own verification (agreement with the original model, refusal and capability comparisons, engine tests) is in the model repository's `heretic/` folder and summarized on its [model card](https://huggingface.co/satellitedown/Qwen3.8-Flash-Next-heretic-fngine).
 
 ## Immutable downloads
 
 [runtime-manifest.json](runtime-manifest.json) pins:
 
 - runtime: `satellitedown/fngine` at a full commit, built with the locked CUDA wheels in [requirements-cuda.lock](requirements-cuda.lock);
-- model: `satellitedown/Qwen3.8-Flash-Next-abliterated-fngine` at a full revision, with the SHA-256 and size of every file needed to serve plus the repository's `LICENSE`, `NOTICE` and `README.md`. Its `abliteration/` folder (how the model was made and verified) and the pack's `dense_bf16.bin` (8.7 GB, used only by fngine's validation mode) are not downloaded.
+- model: `satellitedown/Qwen3.8-Flash-Next-heretic-fngine` at a full revision, with the SHA-256 and size of every file needed to serve plus the repository's `LICENSE`, `NOTICE` and `README.md`. Its `heretic/` folder (how the model was made and verified) and the pack's `dense_bf16.bin` (8.7 GB, used only by fngine's validation mode) are not downloaded.
 
 Maintainers pin new versions with `.venv/bin/python tools/pin.py`, which takes every checksum from the Hub at the pinned revision, and commit the result.
 
 ## Model lineage
 
-The pack is Qwen3.8-Flash-Next with ISTA-DASLab's GSQ-RCO IQ3_S routed experts and n-gram table, FP8 dense weights converted from the official BF16 release, and the abliteration of huihui-ai/Huihui-Qwen3.8-Flash-Next-abliterated: its 96 edited dense tensors are included, and its routed-expert edit (a single refusal direction per layer) is applied by fngine to the summed routed-expert output, which is mathematically equivalent and keeps the quantized expert bytes unchanged. No training was done. Refusal behaviour is removed: outputs are unmoderated and not suitable for safety-critical use.
+The pack is Qwen3.8-Flash-Next with ISTA-DASLab's GSQ-RCO IQ3_S routed experts and n-gram table, FP8 dense weights converted from the official BF16 release, and the decensoring of [trohrbaugh/Qwen3.8-Flash-Next-heretic-2](https://huggingface.co/trohrbaugh/Qwen3.8-Flash-Next-heretic-2) (made with [Heretic](https://github.com/p-e-w/heretic)): its 21 edited dense tensors are included, and its routed-expert edit (one refusal direction and weight per layer, in layers 31–35) is applied by fngine to the summed routed-expert output, which is mathematically equivalent and keeps the quantized expert bytes unchanged. No training was done. It stays close to the original model (G2 top-1 agreement 0.899 against 0.911 for the un-edited pack) and answers 31 of 32 prompts the original partly refuses; outputs are unmoderated and not suitable for safety-critical use. It replaces the earlier huihui-ai abliteration, which measurably degraded the model on ordinary text.
 
 ## Licensing and credits
 
@@ -120,4 +120,4 @@ The **installer code is Apache-2.0**, under [LICENSE](LICENSE). That license doe
 
 The model is a derivative of Qwen3.8-Flash-Next under the **Qwen Community License 1.0**, downloaded with it as `LICENSE`; its conditions apply to your use. fngine is Apache-2.0 and derives in part from Cinference and NInfer. CUDA components retain NVIDIA's license terms.
 
-Credits include Qwen, ISTA-DASLab (GSQ, RCO), huihui-ai, Neroued/NInfer, Cinference and ggml. See [NOTICE](NOTICE) and the downloaded `NOTICE`. This is an unofficial community recipe, not an upstream endorsement.
+Credits include Qwen, ISTA-DASLab (GSQ, RCO), trohrbaugh and the Heretic authors, Neroued/NInfer, Cinference and ggml. See [NOTICE](NOTICE) and the downloaded `NOTICE`. This is an unofficial community recipe, not an upstream endorsement.

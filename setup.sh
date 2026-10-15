@@ -5,7 +5,7 @@ ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 export PATH="$ROOT/.tools/bin:$PATH"
 
 if [[ "${1:-}" == --help || "${1:-}" == -h ]]; then
-  printf 'Usage: bash setup.sh [--update]\n\nChoose 1 to build fngine and download the abliterated Qwen3.8-Flash-Next pack.\nChoose 2 to download or resume the model download.\nChoose 3 to start the server with the manifest profile.\nChoose 4, or run bash setup.sh --update, to update this installer, rebuild the\nruntime at its new pin, and replace model files that no longer match the new pin\n(they are moved to models/Qwen3.8-Flash-Next-abliterated-fngine.previous-<time>/,\nnot deleted). Serving requires Linux x86_64, an RTX 5090 with working NVIDIA\ndrivers, an AVX-512 CPU (Zen 4/5 or Sapphire Rapids and later) and ~60 GB RAM.\nAllow about 86.8 GB for model files, plus software and download working space.\n'
+  printf 'Usage: bash setup.sh [--update]\n\nChoose 1 to build fngine and download the heretic Qwen3.8-Flash-Next pack.\nChoose 2 to download or resume the model download.\nChoose 3 to start the server with the manifest profile.\nChoose 4, or run bash setup.sh --update, to update this installer, rebuild the\nruntime at its new pin, and replace model files that no longer match the new pin\n(they are moved to models/Qwen3.8-Flash-Next-heretic-fngine.previous-<time>/,\nnot deleted). Serving requires Linux x86_64, an RTX 5090 with working NVIDIA\ndrivers, an AVX-512 CPU (Zen 4/5 or Sapphire Rapids and later) and ~60 GB RAM.\nAllow about 86.8 GB for model files, plus software and download working space.\n'
   exit 0
 fi
 # --update-continue is internal: after --update (or option 4) pulls the installer, the pulled
@@ -208,7 +208,7 @@ build_and_download() {
   ensure_uv || return 1
   printf '\n[1/2] Installing local tools and building the pinned fngine runtime...\n'
   run_step bash "$ROOT/scripts/install.sh" || return 1
-  printf '\n[2/2] Downloading and verifying the abliterated pack and its licenses...\n'
+  printf '\n[2/2] Downloading and verifying the heretic pack and its licenses...\n'
   run_step "$ROOT/.venv/bin/python" "$ROOT/scripts/download_models.py" "$@"
 }
 
@@ -275,7 +275,7 @@ if [[ "$update" == continue ]]; then
 fi
 
 while true; do
-  printf '\nQwen3.8-Flash-Next abliterated - fngine\n'
+  printf '\nQwen3.8-Flash-Next heretic - fngine\n'
   printf 'RTX 5090 + AVX-512 CPU expert tier, 256K context, MTP speculation\n\n'
   printf '  1) Install everything (build + download)\n'
   printf '  2) Download / resume model\n'
